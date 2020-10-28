@@ -1,0 +1,26 @@
+dic = []
+w, n = input().split(" ")
+
+
+for i in range(int(w)):
+    dic.append(input())
+print(dic)
+dic.sort()
+print(dic)
+
+for i in range(int(n)):
+    k, test = input().split(" ")
+    l = 0
+    r = len(dic) - 1
+    while (l <= r):
+        mid = (l + r) // 2
+        if dic[mid] >= test:
+            r = mid - 1
+        else:
+            l = mid + 1
+    tar = l + int (k)
+    if tar < len(dic) and dic[tar].startswith(test):
+        print(tar + 1)
+    else:
+        print(-1)
+    
